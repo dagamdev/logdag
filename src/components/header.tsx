@@ -1,7 +1,7 @@
 export default function Header () {
   return (
-    <header>
-      <h1>Logdag</h1>
+    <header className="sticky top-0 bg-primary shadow-md py-2 px-4 z-50">
+      <h1 className="text-xl font-bold text-accent-text">Logdag</h1>
     </header>
   )
 }
