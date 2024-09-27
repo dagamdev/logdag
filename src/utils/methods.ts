@@ -1,3 +1,5 @@
+import { MILLISECOND_TIMES } from './constants'
+
 export function relativeTime (timestamp: string, lang: Intl.LocalesArgument = 'en') {
   const currentTime = new Date().getTime() // Tiempo actual en milisegundos
   const targetDate = new Date(timestamp).getTime() // Convertimos el string a número
@@ -33,4 +35,21 @@ export function relativeTime (timestamp: string, lang: Intl.LocalesArgument = 'e
 
   const yearsDifference = Math.round(monthsDifference / 12)
   return rtf.format(yearsDifference, 'year')
+}
+
+export function getTimeDifference (firstDate: string, lastDate: string, lang: Intl.LocalesArgument = 'en') {
+  let differenceTime = new Date(lastDate).getTime() - new Date(firstDate).getTime()
+  const times: string[] = []
+
+  for (const key in MILLISECOND_TIMES) {
+    const milliseconds = MILLISECOND_TIMES[key as keyof typeof MILLISECOND_TIMES]
+    const amount = Math.floor(differenceTime / milliseconds)
+
+    if (amount === 0) continue
+    differenceTime = Math.floor(differenceTime % milliseconds)
+
+    times.push(amount + key[0].toLowerCase())
+  }
+
+  return `${times.join(' ')} defference`
 }
