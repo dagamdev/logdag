@@ -15,4 +15,5 @@ declare interface LogGroup {
   name: string
   description?: string
   createdAt: string
+  logsAmount: number
 }
