@@ -6,3 +6,5 @@ export const MILLISECOND_TIMES = {
   MINUTE: 60_000,
   SECOND: 1000
 }
+
+export const MAX_AGE_COOKIE = process.env.NEXT_PUBLIC_MAX_AGE_COOKIE ?? 1_209_600
