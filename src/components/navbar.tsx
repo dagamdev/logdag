@@ -10,7 +10,7 @@ export default function Navbar () {
   const pathname = usePathname()
 
   return (
-    <nav className='fixed bottom-0 bg-primary flex w-full justify-between shadow-inner py-3 px-5'>
+    <nav className='fixed bottom-0 bg-primary flex w-full justify-between py-3 px-5'>
       <Link href={'/'}>
         <HomeIcon className='size-7' iconStyle={pathname === '/' ? 'fill' : 'outline'} />
       </Link>
