@@ -13,7 +13,7 @@ export function generateApi (getToken: () => string) {
   axiosInstance.interceptors.request.use(config => {
     if (authRoutes.some(route => config.url?.includes(route))) {
       const token = getToken()
-      console.log(token)
+      console.log('Axios request interceptor: ', { token })
       config.headers.Authorization = `Bearer ${token}`
     }
 
