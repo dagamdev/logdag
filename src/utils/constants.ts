@@ -7,4 +7,5 @@ export const MILLISECOND_TIMES = {
   SECOND: 1000
 }
 
+export const API_URL = process.env.NEXT_PUBLIC_API_URL
 export const MAX_AGE_COOKIE = process.env.NEXT_PUBLIC_MAX_AGE_COOKIE ?? 1_209_600

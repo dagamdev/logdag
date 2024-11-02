@@ -1,7 +1,7 @@
 'use client'
 
 import LogCard from '@/components/log-card'
-import api from '@/lib/api'
+import api from '@/lib/client/api'
 import { useLogsStore } from '@/stores/logs'
 import { useEffect } from 'react'
 
@@ -13,6 +13,10 @@ export default function Home () {
     api.getAllLogs().then(res => {
       console.log(res.data)
       setLogs(res.data)
+    }).catch(console.error)
+
+    api.current().then(res => {
+      console.log(res.data)
     }).catch(console.error)
   }, [setLogs])
 

@@ -2,8 +2,8 @@
 
 import { type FormEvent } from 'react'
 import Button from './button'
-import api from '@/lib/api'
-import { setCookieToken } from '@/utils/methods'
+import { setToken } from '@/lib/client'
+import api from '@/lib/client/api'
 
 export default function AuthForm ({ login }: { login?: boolean }) {
   const isLogin = login ?? false
@@ -22,7 +22,7 @@ export default function AuthForm ({ login }: { login?: boolean }) {
       if (isLogin) {
         const res = await api.login({ email, password })
         console.log(res.data)
-        setCookieToken('token', res.data.token)
+        setToken('token', res.data.token)
       } else {
         const name = formData.get('user-name')?.toString() ?? ''
         const confirmPassword = formData.get('user-name')?.toString() ?? ''

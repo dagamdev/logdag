@@ -1,4 +1,4 @@
-import { MAX_AGE_COOKIE, MILLISECOND_TIMES } from './constants'
+import { MILLISECOND_TIMES } from './constants'
 
 export function relativeTime (timestamp: string, lang: Intl.LocalesArgument = 'en') {
   const currentTime = new Date().getTime() // Tiempo actual en milisegundos
@@ -54,16 +54,6 @@ export function getTimeDifference (firstDate: string, lastDate: string, lang: In
   return `${times.join(' ')} defference`
 }
 
-export function setCookieToken (name: string, value: string) {
-  if (typeof document === 'undefined') return false
-
-  document.cookie = `${name}=${value};max-age=${+MAX_AGE_COOKIE}`
-  return true
-}
-
-export function getCookieToken () {
-  if (typeof document === 'undefined') return undefined
-
-  const token = document.cookie.split(';').find(s => s.includes('token='))?.replace('token=', '')
-  return token
+export function isClient () {
+  return typeof window === 'object'
 }
