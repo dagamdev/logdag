@@ -8,7 +8,9 @@ import api from '@/lib/client/api'
 export default function AuthForm ({ login }: { login?: boolean }) {
   const isLogin = login ?? false
 
-  console.log(document.cookie)
+  if (typeof document !== 'undefined') {
+    console.log(document.cookie)
+  }
 
   const handleSubmit = async (ev: FormEvent<HTMLFormElement>) => {
     ev.preventDefault()

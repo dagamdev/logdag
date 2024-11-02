@@ -5,7 +5,8 @@ const logGroups: LogGroup[] = [
     id: '123123-sd',
     name: 'Primer grupo',
     createdAt: '2024-09-27T18:10:14.244Z',
-    logsAmount: 12
+    logsAmount: 12,
+    description: 'Esto es una descripcion larga de un grupo de registros.'
   },
   {
     id: '1-lks23123-sd',
