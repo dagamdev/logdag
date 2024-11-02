@@ -1,7 +1,5 @@
-import { MAX_AGE_COOKIE } from '@/utils/constants'
-
 export function setToken (name: string, value: string) {
-  document.cookie = `${name}=${value};max-age=${+MAX_AGE_COOKIE}`
+  document.cookie = `${name}=${value}`
   return true
 }
 
